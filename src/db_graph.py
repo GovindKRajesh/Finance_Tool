@@ -61,6 +61,7 @@ for fund_name in unique_funds:
     # Filter investment data for the current fund
     fund_data = investments_df[investments_df['Fund Name'] == fund_name].copy()
     fund_data['Start Date'] = pd.to_datetime(fund_data['Start Date'])
+    print(fund_data)
 
     # Get NAV data for the current fund
     nav_df = nav_data_df[nav_data_df['Fund Name'] == fund_name].copy()
@@ -89,4 +90,4 @@ fig = px.line(total_portfolio_value_filled, y='Value', title='Portfolio Value Ov
 fig.update_xaxes(title_text='Date')
 fig.update_yaxes(title_text='Value', tickvals=[i * 1e5 for i in range(int(total_portfolio_value_filled['Value'].max() / 1e5) + 1)],
                  ticktext=[format_in_lakhs(i * 1e5) for i in range(int(total_portfolio_value_filled['Value'].max() / 1e5) + 1)])
-fig.show()
+#fig.show()
