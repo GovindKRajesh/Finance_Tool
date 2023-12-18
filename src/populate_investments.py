@@ -41,7 +41,7 @@ def populate_initial_investments(file_path):
                 cur.execute("""
                     INSERT INTO investments (fund_name, principal, start_date, sell_date, units) 
                     VALUES (%s, %s, %s, %s, %s)
-                    ON CONFLICT (fund_name, start_date) DO NOTHING;
+                    ON CONFLICT (fund_name, start_date, units) DO NOTHING;
                     """, (fund_name, principal, start_date, sell_date, units))
             conn.commit()
             print("Initial investment data successfully inserted into the database.")
