@@ -1,7 +1,6 @@
 import psycopg2
 import pandas as pd
 import plotly.express as px
-import decimal
 
 from conf import DB_USERNAME, DB_PASSWORD
 
